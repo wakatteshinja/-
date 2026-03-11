@@ -1,20 +1,34 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Digital Scorer Pro
 
-# Run and deploy your AI Studio app
+Next.js + Tailwind + Fabric.js + Supabase で構築したデジタル採点・管理システムです。
 
-This contains everything you need to run your app locally.
+## セットアップ
 
-View your app in AI Studio: https://ai.studio/apps/drive/1C7dl9RyyESPP_7Bic6H_E6uPpmp4u5Mk
+1. 依存関係をインストール
+```bash
+npm install
+```
+2. `.env.local` を作成
+```bash
+NEXT_PUBLIC_SUPABASE_URL=...
+NEXT_PUBLIC_SUPABASE_ANON_KEY=...
+```
+3. Supabase SQL Editor で `supabase/schema.sql` を実行。
+4. Storage バケットを作成。
+   - `template-papers`
+   - `answer-papers`
+   - `annotated-papers`
+5. 起動
+```bash
+npm run dev
+```
 
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 主な機能
+- 認証（ログイン/新規登録）
+- 白紙答案のテンプレート化（小問枠 + 合計表示エリア指定）
+- 連続採点（生徒サイドバー切替、リアルタイム合計）
+- Fabric.js 赤ペン書き込み
+- クラス名簿一括インポート（CSV/テキスト）
+- 進捗/平均/最高/最低のダッシュボード表示
+- CSV/ZIP エクスポート
+- 採点済みアーカイブ一覧
